@@ -10,10 +10,18 @@ START_TEST(convert_I_to_1)
 }
 END_TEST
 
+START_TEST(convert_II_to_2)
+{
+  int result = convert("II");
+  ck_assert_int_eq(result, 2);
+}
+END_TEST
+
 Suite * conversionTestsSuite(void) {
   Suite *conversionSuite = suite_create("Conversion Tests");
   TCase *convert = tcase_create("convert");
   tcase_add_test(convert, convert_I_to_1);
+  tcase_add_test(convert, convert_II_to_2);
   suite_add_tcase(conversionSuite, convert);
 
   return conversionSuite;

@@ -5,7 +5,7 @@
 
 START_TEST(convert_I_to_1)
 {
-  int *result = convert("I");
+  int result = convert("I");
   ck_assert_int_eq(result, 1);
 }
 END_TEST

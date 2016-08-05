@@ -1,6 +1,7 @@
 #include<stdio.h>
+#include "convert.h"
 
-int convert(void)
+int convert(char *romanNumeral)
 {
-    return 0;
+    return 1;
 }

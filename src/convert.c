@@ -10,8 +10,10 @@ int convert(char *romanNumeral)
       return 1;
     } else if (*romanNumeral == 'V') {
       return 5;
-    } else {
+    } else if (*romanNumeral == 'X') {
       return 10;
+    } else {
+      return 50;
     }
 
 }

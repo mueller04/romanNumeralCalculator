@@ -53,6 +53,13 @@ START_TEST(convert_M_to_1000)
 }
 END_TEST
 
+START_TEST(convert_T_to_0)
+{
+  int result = convert("T");
+  ck_assert_int_eq(result, 0);
+}
+END_TEST
+
 Suite * conversionTestsSuite(void) {
   Suite *conversionSuite = suite_create("Conversion Tests");
   TCase *convert = tcase_create("convert");
@@ -63,6 +70,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convert, convert_C_to_100);
   tcase_add_test(convert, convert_D_to_500);
   tcase_add_test(convert, convert_M_to_1000);
+  tcase_add_test(convert, convert_T_to_0);
   suite_add_tcase(conversionSuite, convert);
 
   return conversionSuite;

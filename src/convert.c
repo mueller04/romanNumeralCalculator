@@ -16,8 +16,10 @@ int convert(char *romanNumeral)
       return 50;
     } else if (*romanNumeral == 'C') {
       return 100;
-    } else {
+    } else if (*romanNumeral == 'D') {
       return 500;
+    } else {
+      return 1000;
     }
 
 }

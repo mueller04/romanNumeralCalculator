@@ -5,15 +5,16 @@
 
 START_TEST(convert_I_to_1)
 {
-  int result = convert("I");
+  char *input = "I";
+  int result = convert(input);
   ck_assert_int_eq(result, 1);
 }
 END_TEST
 
 START_TEST(convert_II_to_2)
 {
-  int result = convert("II");
-  ck_assert_int_eq(result, 2);
+  int result = convert("V");
+  ck_assert_int_eq(result, 5);
 }
 END_TEST
 

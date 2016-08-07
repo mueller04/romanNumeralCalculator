@@ -81,6 +81,13 @@ START_TEST(convert_VIII_to_8)
 }
 END_TEST
 
+START_TEST(convert_IV_to_4)
+{
+  int result = convert("IV");
+  ck_assert_int_eq(result, 4);
+}
+END_TEST
+
 Suite * conversionTestsSuite(void) {
   Suite *conversionSuite = suite_create("Conversion Tests");
   TCase *convert = tcase_create("convert");
@@ -95,6 +102,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convert, convert_VI_to_6);
   tcase_add_test(convert, convert_III_to_3);
   tcase_add_test(convert, convert_VIII_to_8);
+  tcase_add_test(convert, convert_IV_to_4);
   suite_add_tcase(conversionSuite, convert);
 
   return conversionSuite;

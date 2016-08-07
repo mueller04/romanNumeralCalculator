@@ -2,10 +2,6 @@
 #include<stdio.h>
 #include "convert.h"
 
-const char* convertToNumeral(int input) {
-  return 'I';
-}
-
 int convert(char *romanNumeral)
 {
   int tempValue = 0;

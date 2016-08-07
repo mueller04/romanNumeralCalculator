@@ -120,16 +120,14 @@ END_TEST
 START_TEST(convert_1_to_I)
 {
   int input = 1;
-  const char* result = convertToNumeral(input);
-  ck_assert_int_eq(result, 'I');
+  ck_assert_str_eq("I", convertToNumeral(input));
 }
 END_TEST
 
 START_TEST(convert_3_to_III)
 {
   int input = 3;
-  const char* result = convertToNumeral(input);
-  ck_assert_int_eq(result, 'III');
+  ck_assert_str_eq("III", convertToNumeral(input));
 }
 END_TEST
 

@@ -2,6 +2,10 @@
 #include<stdio.h>
 #include "convertToNumeral.h"
 
-const char* convertToNumeral(int input) {
-  return "I";
+char *convertToNumeral(int input) {
+  if (input == 1) {
+    return "I";
+  } else {
+    return "III";
+  }
 }

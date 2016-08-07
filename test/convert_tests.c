@@ -131,6 +131,13 @@ START_TEST(convert_3_to_III)
 }
 END_TEST
 
+START_TEST(convert_5_to_V)
+{
+  int input = 5;
+  ck_assert_str_eq("V", convertToNumeral(input));
+}
+END_TEST
+
 Suite * conversionTestsSuite(void) {
   Suite *conversionSuite = suite_create("Conversion Tests");
   TCase *convert = tcase_create("convert");
@@ -153,6 +160,7 @@ Suite * conversionTestsSuite(void) {
   TCase *convertToNumeral = tcase_create("convert to numeral");
   tcase_add_test(convertToNumeral, convert_1_to_I);
   tcase_add_test(convertToNumeral, convert_3_to_III);
+  tcase_add_test(convertToNumeral, convert_5_to_V);
 
 
   suite_add_tcase(conversionSuite, convert);

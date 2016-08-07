@@ -1,6 +1,0 @@
-#ifndef ARITHMETIC_TESTS_H
-#define ARITHMETIC_TESTS_H
-#include <check.h>
-Suite* arithmeticTestsSuite(void);
-
-#endif

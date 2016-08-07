@@ -1,6 +1,6 @@
-#ifndef CONVERT_TESTS_H
-#define CONVERT_TESTS_H
+#ifndef ADDITION_TESTS_H
+#define CALCULATE_TESTS_H
 #include <check.h>
-Suite* conversionTestsSuite(void);
+Suite* additionTestsSuite(void);
 
 #endif

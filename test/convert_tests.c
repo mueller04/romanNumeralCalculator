@@ -102,6 +102,20 @@ START_TEST(convert_CM_to_900)
 }
 END_TEST
 
+START_TEST(convert_XIV_to_14)
+{
+  int result = convert("XIV");
+  ck_assert_int_eq(result, 14);
+}
+END_TEST
+
+START_TEST(convert_LXXIV_to_74)
+{
+  int result = convert("XIV");
+  ck_assert_int_eq(result, 14);
+}
+END_TEST
+
 Suite * conversionTestsSuite(void) {
   Suite *conversionSuite = suite_create("Conversion Tests");
   TCase *convert = tcase_create("convert");
@@ -119,6 +133,8 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convert, convert_IV_to_4);
   tcase_add_test(convert, convert_IX_to_9);
   tcase_add_test(convert, convert_CM_to_900);
+  tcase_add_test(convert, convert_XIV_to_14);
+  tcase_add_test(convert, convert_LXXIV_to_74);
   suite_add_tcase(conversionSuite, convert);
 
   return conversionSuite;

@@ -4,4 +4,4 @@
 int convert(char *romanNumeral);
 int getNumeralValue(char numeral);
 
-#endif /* MONEY_H */
+#endif /* CONVERT_H */

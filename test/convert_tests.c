@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <check.h>
 #include "../src/convert.h"
+#include "../src/convertToNumeral.h"
 
 START_TEST(convert_I_to_1)
 {
@@ -116,6 +117,14 @@ START_TEST(convert_LXXIV_to_74)
 }
 END_TEST
 
+START_TEST(convert_1_to_I)
+{
+  int input = 1;
+  const char* result = convertToNumeral(input);
+  ck_assert_int_eq(result, 'I');
+}
+END_TEST
+
 Suite * conversionTestsSuite(void) {
   Suite *conversionSuite = suite_create("Conversion Tests");
   TCase *convert = tcase_create("convert");
@@ -135,7 +144,12 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convert, convert_CM_to_900);
   tcase_add_test(convert, convert_XIV_to_14);
   tcase_add_test(convert, convert_LXXIV_to_74);
+  TCase *convertToNumeral = tcase_create("convert to numeral");
+  tcase_add_test(convertToNumeral, convert_1_to_I);
+
+
   suite_add_tcase(conversionSuite, convert);
+  suite_add_tcase(conversionSuite, convertToNumeral);
 
   return conversionSuite;
 }

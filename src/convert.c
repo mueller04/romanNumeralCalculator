@@ -4,23 +4,30 @@
 
 int convert(char *romanNumeral)
 {
-
+  int tempValue = 0;
   int value = 0;
   int length = (int)strlen(romanNumeral);
   int i;
   for (i = 0; i < length; i++)
   {
-    value += getNumeralValue(romanNumeral[i]);
+    tempValue = getNumeralValue(romanNumeral[i]);
+
+    if (i + 1 <= length) {
+      int nextValue = getNumeralValue(romanNumeral[i + 1]);
+      if (tempValue < nextValue) {
+        value -= tempValue;
+      } else {
+        value += tempValue;
+      }
+    } else {
+      value += tempValue;
+    }
   }
-
   return value;
-
-
 }
 
 int getNumeralValue(char numeral)
 {
-  printf("%c\n", numeral);
   if (numeral == 'I'){
     return 1;
   } else if (numeral == 'V') {

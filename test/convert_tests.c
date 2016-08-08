@@ -238,6 +238,14 @@ START_TEST(add_XIV_to_LX_results_LXXIV)
 }
 END_TEST
 
+START_TEST(subtract_XIV_from_LXXIV_results_LX)
+{
+  char buf[16];
+  int result = add(buf, "LXXIV", "XIV");
+  ck_assert_str_eq(buf, "LX");
+}
+END_TEST
+
 Suite * conversionTestsSuite(void) {
   Suite *conversionSuite = suite_create("Conversion Tests");
   TCase *convert = tcase_create("convert");
@@ -274,11 +282,14 @@ Suite * conversionTestsSuite(void) {
   TCase *add = tcase_create("addition");
   tcase_add_test(add, add_I_to_I_results_II);
   tcase_add_test(add, add_XIV_to_LX_results_LXXIV);
+  TCase *subtract = tcase_create("subtraction");
+  tcase_add_test(subtract, subtract_XIV_from_LXXIV_results_LX);
 
 
   suite_add_tcase(conversionSuite, convert);
   suite_add_tcase(conversionSuite, convertToNumeral);
   suite_add_tcase(conversionSuite, add);
+  suite_add_tcase(conversionSuite, subtract);
 
   return conversionSuite;
 }

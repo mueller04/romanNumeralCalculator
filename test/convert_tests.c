@@ -213,6 +213,14 @@ START_TEST(convert_1000_to_M)
 }
 END_TEST
 
+START_TEST(convert_540_to_DXL)
+{
+  char buf[16];
+  int result = convertToNumeral(buf, 540);
+  ck_assert_str_eq(buf, "DXL");
+}
+END_TEST
+
 Suite * conversionTestsSuite(void) {
   Suite *conversionSuite = suite_create("Conversion Tests");
   TCase *convert = tcase_create("convert");
@@ -245,6 +253,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convertToNumeral, convert_500_to_D);
   tcase_add_test(convertToNumeral, convert_900_to_CM);
   tcase_add_test(convertToNumeral, convert_1000_to_M);
+  tcase_add_test(convertToNumeral, convert_540_to_DXL);
 
 
   suite_add_tcase(conversionSuite, convert);

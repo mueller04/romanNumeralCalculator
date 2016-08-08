@@ -230,6 +230,14 @@ START_TEST(add_I_to_I_results_II)
 }
 END_TEST
 
+START_TEST(add_XIV_to_LX_results_LXXIV)
+{
+  char buf[16];
+  int result = add(buf, "XIV", "LX");
+  ck_assert_str_eq(buf, "LXXIV");
+}
+END_TEST
+
 Suite * conversionTestsSuite(void) {
   Suite *conversionSuite = suite_create("Conversion Tests");
   TCase *convert = tcase_create("convert");
@@ -265,6 +273,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convertToNumeral, convert_540_to_DXL);
   TCase *add = tcase_create("addition");
   tcase_add_test(add, add_I_to_I_results_II);
+  tcase_add_test(add, add_XIV_to_LX_results_LXXIV);
 
 
   suite_add_tcase(conversionSuite, convert);

@@ -3,6 +3,7 @@
 #include <check.h>
 #include "../src/convert.h"
 #include "../src/convertToNumeral.h"
+#include "../src/arithmetic.h"
 
 START_TEST(convert_I_to_1)
 {
@@ -221,6 +222,14 @@ START_TEST(convert_540_to_DXL)
 }
 END_TEST
 
+START_TEST(add_I_to_I_results_II)
+{
+  char buf[16];
+  int result = add(buf, "I", "I");
+  ck_assert_str_eq(buf, "II");
+}
+END_TEST
+
 Suite * conversionTestsSuite(void) {
   Suite *conversionSuite = suite_create("Conversion Tests");
   TCase *convert = tcase_create("convert");
@@ -254,10 +263,13 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convertToNumeral, convert_900_to_CM);
   tcase_add_test(convertToNumeral, convert_1000_to_M);
   tcase_add_test(convertToNumeral, convert_540_to_DXL);
+  TCase *add = tcase_create("addition");
+  tcase_add_test(add, add_I_to_I_results_II);
 
 
   suite_add_tcase(conversionSuite, convert);
   suite_add_tcase(conversionSuite, convertToNumeral);
+  suite_add_tcase(conversionSuite, add);
 
   return conversionSuite;
 }

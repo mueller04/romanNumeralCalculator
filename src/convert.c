@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include "convert.h"
 
-int convert(char *romanNumeral)
+int convertToInt(char *romanNumeral)
 {
   int tempValue = 0;
   int value = 0;

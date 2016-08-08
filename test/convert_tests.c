@@ -8,112 +8,112 @@
 START_TEST(convert_I_to_1)
 {
   char *input = "I";
-  int result = convert(input);
+  int result = convertToInt(input);
   ck_assert_int_eq(result, 1);
 }
 END_TEST
 
 START_TEST(convert_V_to_5)
 {
-  int result = convert("V");
+  int result = convertToInt("V");
   ck_assert_int_eq(result, 5);
 }
 END_TEST
 
 START_TEST(convert_X_to_10)
 {
-  int result = convert("X");
+  int result = convertToInt("X");
   ck_assert_int_eq(result, 10);
 }
 END_TEST
 
 START_TEST(convert_L_to_50)
 {
-  int result = convert("L");
+  int result = convertToInt("L");
   ck_assert_int_eq(result, 50);
 }
 END_TEST
 
 START_TEST(convert_C_to_100)
 {
-  int result = convert("C");
+  int result = convertToInt("C");
   ck_assert_int_eq(result, 100);
 }
 END_TEST
 
 START_TEST(convert_D_to_500)
 {
-  int result = convert("D");
+  int result = convertToInt("D");
   ck_assert_int_eq(result, 500);
 }
 END_TEST
 
 START_TEST(convert_M_to_1000)
 {
-  int result = convert("M");
+  int result = convertToInt("M");
   ck_assert_int_eq(result, 1000);
 }
 END_TEST
 
 START_TEST(convert_T_to_0)
 {
-  int result = convert("T");
+  int result = convertToInt("T");
   ck_assert_int_eq(result, 0);
 }
 END_TEST
 
 START_TEST(convert_VI_to_6)
 {
-  int result = convert("VI");
+  int result = convertToInt("VI");
   ck_assert_int_eq(result, 6);
 }
 END_TEST
 
 START_TEST(convert_III_to_3)
 {
-  int result = convert("III");
+  int result = convertToInt("III");
   ck_assert_int_eq(result, 3);
 }
 END_TEST
 
 START_TEST(convert_VIII_to_8)
 {
-  int result = convert("VIII");
+  int result = convertToInt("VIII");
   ck_assert_int_eq(result, 8);
 }
 END_TEST
 
 START_TEST(convert_IV_to_4)
 {
-  int result = convert("IV");
+  int result = convertToInt("IV");
   ck_assert_int_eq(result, 4);
 }
 END_TEST
 
 START_TEST(convert_IX_to_9)
 {
-  int result = convert("IX");
+  int result = convertToInt("IX");
   ck_assert_int_eq(result, 9);
 }
 END_TEST
 
 START_TEST(convert_CM_to_900)
 {
-  int result = convert("CM");
+  int result = convertToInt("CM");
   ck_assert_int_eq(result, 900);
 }
 END_TEST
 
 START_TEST(convert_XIV_to_14)
 {
-  int result = convert("XIV");
+  int result = convertToInt("XIV");
   ck_assert_int_eq(result, 14);
 }
 END_TEST
 
 START_TEST(convert_LXXIV_to_74)
 {
-  int result = convert("XIV");
+  int result = convertToInt("XIV");
   ck_assert_int_eq(result, 14);
 }
 END_TEST

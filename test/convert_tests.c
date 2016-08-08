@@ -205,6 +205,14 @@ START_TEST(convert_900_to_CM)
 }
 END_TEST
 
+START_TEST(convert_1000_to_M)
+{
+  char buf[16];
+  int result = convertToNumeral(buf, 1000);
+  ck_assert_str_eq(buf, "M");
+}
+END_TEST
+
 Suite * conversionTestsSuite(void) {
   Suite *conversionSuite = suite_create("Conversion Tests");
   TCase *convert = tcase_create("convert");
@@ -236,6 +244,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convertToNumeral, convert_100_to_C);
   tcase_add_test(convertToNumeral, convert_500_to_D);
   tcase_add_test(convertToNumeral, convert_900_to_CM);
+  tcase_add_test(convertToNumeral, convert_1000_to_M);
 
 
   suite_add_tcase(conversionSuite, convert);

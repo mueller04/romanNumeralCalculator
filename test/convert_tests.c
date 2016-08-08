@@ -241,7 +241,7 @@ END_TEST
 START_TEST(subtract_XIV_from_LXXIV_results_LX)
 {
   char buf[16];
-  int result = add(buf, "LXXIV", "XIV");
+  int result = subtract(buf, "LXXIV", "XIV");
   ck_assert_str_eq(buf, "LX");
 }
 END_TEST

@@ -6,7 +6,10 @@ const int convertToNumeral(char* buf, int input) {
 
   int charIndex = 0;
   while (input > 0) {
-    if (input >= 10) {
+    if (input >= 50) {
+      buf[charIndex] = 'L';
+      input -= 50;
+    } else if (input >= 10) {
       buf[charIndex] = 'X';
       input -= 10;
     } else if (input == 9) {

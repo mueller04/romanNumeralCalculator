@@ -157,6 +157,14 @@ START_TEST(convert_10_to_X)
 }
 END_TEST
 
+START_TEST(convert_9_to_IX)
+{
+  char buf[16];
+  int result = convertToNumeral(buf, 9);
+  ck_assert_str_eq(buf, "IX");
+}
+END_TEST
+
 Suite * conversionTestsSuite(void) {
   Suite *conversionSuite = suite_create("Conversion Tests");
   TCase *convert = tcase_create("convert");
@@ -182,6 +190,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convertToNumeral, convert_5_to_V);
   tcase_add_test(convertToNumeral, convert_4_to_IV);
   tcase_add_test(convertToNumeral, convert_10_to_X);
+  tcase_add_test(convertToNumeral, convert_9_to_IX);
 
 
   suite_add_tcase(conversionSuite, convert);

@@ -9,6 +9,11 @@ const int convertToNumeral(char* buf, int input) {
     if (input >= 10) {
       buf[charIndex] = 'X';
       input -= 10;
+    } else if (input == 9) {
+      buf[charIndex] = 'I';
+      charIndex++;
+      buf[charIndex] = 'X';
+      input -= 9;
     } else if (input >= 5) {
       buf[charIndex] = 'V';
       input -= 5;

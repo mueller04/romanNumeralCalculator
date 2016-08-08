@@ -189,6 +189,14 @@ START_TEST(convert_100_to_C)
 }
 END_TEST
 
+START_TEST(convert_500_to_D)
+{
+  char buf[16];
+  int result = convertToNumeral(buf, 500);
+  ck_assert_str_eq(buf, "D");
+}
+END_TEST
+
 Suite * conversionTestsSuite(void) {
   Suite *conversionSuite = suite_create("Conversion Tests");
   TCase *convert = tcase_create("convert");
@@ -218,6 +226,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convertToNumeral, convert_50_to_L);
   tcase_add_test(convertToNumeral, convert_40_to_XL);
   tcase_add_test(convertToNumeral, convert_100_to_C);
+  tcase_add_test(convertToNumeral, convert_500_to_D);
 
 
   suite_add_tcase(conversionSuite, convert);

@@ -1,6 +1,6 @@
 #ifndef CONVERTTONUMERAL_H
 #define CONVERTTONUMERAL_H
 
-char *convertToNumeral(int input);
+const int convertToNumeral(char* buf, int input);
 
 #endif /* CONVERTTONUMERAL_H */

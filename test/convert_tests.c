@@ -119,22 +119,25 @@ END_TEST
 
 START_TEST(convert_1_to_I)
 {
-  int input = 1;
-  ck_assert_str_eq("I", convertToNumeral(input));
+  char buf[16];
+  int result = convertToNumeral(buf, 1);
+  ck_assert_str_eq(buf, "I");
 }
 END_TEST
 
 START_TEST(convert_3_to_III)
 {
-  int input = 3;
-  ck_assert_str_eq("III", convertToNumeral(input));
+  char buf[16];
+  int result = convertToNumeral(buf, 3);
+  ck_assert_str_eq(buf, "III");
 }
 END_TEST
 
 START_TEST(convert_5_to_V)
 {
-  int input = 5;
-  ck_assert_str_eq("V", convertToNumeral(input));
+  char buf[16];
+  int result = convertToNumeral(buf, 5);
+  ck_assert_str_eq(buf, "V");
 }
 END_TEST
 

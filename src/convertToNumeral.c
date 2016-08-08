@@ -2,12 +2,19 @@
 #include<stdio.h>
 #include "convertToNumeral.h"
 
-char *convertToNumeral(int input) {
-  if (input == 1) {
-    return "I";
-  } else if (input == 3) {
-    return "III";
-  } else {
-    return "V";
+const int convertToNumeral(char* buf, int input) {
+
+  int charIndex = 0;
+  while (input > 0) {
+    if (input >= 5) {
+      buf[charIndex] = 'V';
+      input -= 5;
+    } else if (input <= 3) {
+      buf[charIndex] = 'I';
+      input -= 1;
+    }
+    charIndex++;
   }
+  buf[charIndex] = '\0';
+  return 0;
 }

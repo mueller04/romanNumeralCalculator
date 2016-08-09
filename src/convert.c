@@ -11,16 +11,13 @@ int convertToInt(char *romanNumeral)
   for (i = 0; i < length; i++)
   {
     tempValue = getNumeralValue(romanNumeral[i]);
+    value += tempValue;
 
     if (i + 1 <= length) {
       int nextValue = getNumeralValue(romanNumeral[i + 1]);
       if (tempValue < nextValue) {
-        value -= tempValue;
-      } else {
-        value += tempValue;
+        value -= (tempValue * 2);
       }
-    } else {
-      value += tempValue;
     }
   }
   return value;

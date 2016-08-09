@@ -19,6 +19,9 @@ const int convertToNumeral(char* buf, int input) {
     } else if (input >= 100) {
       buf[charIndex] = 'C';
       input -= 100;
+    } else if (input >= 90) {
+      deductLowerNumeralChars(buf, 'X', 'C');
+      input -= 90;
     } else if (input >= 50) {
       buf[charIndex] = 'L';
       input -= 50;

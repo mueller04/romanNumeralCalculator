@@ -222,6 +222,22 @@ START_TEST(convert_540_to_DXL)
 }
 END_TEST
 
+START_TEST(convert_99_to_XCIX)
+{
+  char buf[16];
+  int result = convertToNumeral(buf, 99);
+  ck_assert_str_eq(buf, "XCIX");
+}
+END_TEST
+
+START_TEST(convert_3999_to_MMMCMXCIX)
+{
+  char buf[16];
+  int result = convertToNumeral(buf, 3999);
+  ck_assert_str_eq(buf, "MMMCMXCIX");
+}
+END_TEST
+
 START_TEST(add_I_to_I_results_II)
 {
   char buf[16];
@@ -246,6 +262,8 @@ START_TEST(subtract_XIV_from_LXXIV_results_LX)
 }
 END_TEST
 
+
+
 Suite * conversionTestsSuite(void) {
   Suite *conversionSuite = suite_create("Conversion Tests");
   TCase *convert = tcase_create("convert");
@@ -265,6 +283,8 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convert, convert_CM_to_900);
   tcase_add_test(convert, convert_XIV_to_14);
   tcase_add_test(convert, convert_LXXIV_to_74);
+  tcase_add_test(convert, convert_99_to_XCIX);
+  tcase_add_test(convert, convert_3999_to_MMMCMXCIX);
   TCase *convertToNumeral = tcase_create("convert to numeral");
   tcase_add_test(convertToNumeral, convert_1_to_I);
   tcase_add_test(convertToNumeral, convert_3_to_III);

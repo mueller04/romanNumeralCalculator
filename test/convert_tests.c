@@ -238,6 +238,14 @@ START_TEST(convert_3999_to_MMMCMXCIX)
 }
 END_TEST
 
+START_TEST(convert_4000_to_error)
+{
+  char buf[16];
+  int result = convertToNumeral(buf, 4000);
+  ck_assert_int_eq(result, 1);
+}
+END_TEST
+
 START_TEST(add_I_to_I_results_II)
 {
   char buf[16];
@@ -299,6 +307,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convertToNumeral, convert_540_to_DXL);
   tcase_add_test(convertToNumeral, convert_99_to_XCIX);
   tcase_add_test(convertToNumeral, convert_3999_to_MMMCMXCIX);
+  tcase_add_test(convertToNumeral, convert_4000_to_error);
   TCase *add = tcase_create("addition");
   tcase_add_test(add, add_I_to_I_results_II);
   tcase_add_test(add, add_XIV_to_LX_results_LXXIV);

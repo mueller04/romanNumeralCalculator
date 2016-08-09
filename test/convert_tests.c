@@ -297,7 +297,7 @@ END_TEST
 START_TEST(subtract_II_from_I_results_error)
 {
   char buf[16];
-  int result = subtract(buf, "II", "I");
+  int result = subtract(buf, "I", "II");
   ck_assert_int_eq(result, 1);
 }
 END_TEST

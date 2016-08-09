@@ -294,6 +294,14 @@ START_TEST(subtract_XIV_from_LXXIV_results_LX)
 }
 END_TEST
 
+START_TEST(subtract_II_from_I_results_error)
+{
+  char buf[16];
+  int result = subtract(buf, "II", "I");
+  ck_assert_int_eq(result, 1);
+}
+END_TEST
+
 
 
 Suite * conversionTestsSuite(void) {
@@ -340,7 +348,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(add, add_MMMCMXCIX_to_MMMCMXCIX_results_error);
   TCase *subtract = tcase_create("subtraction");
   tcase_add_test(subtract, subtract_XIV_from_LXXIV_results_LX);
-
+  tcase_add_test(subtract, subtract_II_from_I_results_error);
 
   suite_add_tcase(conversionSuite, convert);
   suite_add_tcase(conversionSuite, convertToNumeral);

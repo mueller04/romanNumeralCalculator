@@ -15,7 +15,7 @@ const int convertToNumeral(char* buf, int input) {
       buf[charIndex] = 'M';
       input -= 1000;
     } else if(input >= 900) {
-      deductLowerNumeralChars(buf, 'C', 'M');
+      lowerNumeralChars(buf, 'C', 'M');
       input -= 900;
     } else if (input >= 500) {
       buf[charIndex] = 'D';
@@ -24,26 +24,26 @@ const int convertToNumeral(char* buf, int input) {
       buf[charIndex] = 'C';
       input -= 100;
     } else if (input >= 90) {
-      deductLowerNumeralChars(buf, 'X', 'C');
+      lowerNumeralChars(buf, 'X', 'C');
       input -= 90;
     } else if (input >= 50) {
       buf[charIndex] = 'L';
       input -= 50;
     } else if (input >= 40) {
-      deductLowerNumeralChars(buf, 'X', 'L');
+      lowerNumeralChars(buf, 'X', 'L');
       input -= 40;
     } else if (input >= 10) {
       buf[charIndex] = 'X';
       input -= 10;
     } else if (input >= 9) {
-      deductLowerNumeralChars(buf, 'I', 'X');
+      lowerNumeralChars(buf, 'I', 'X');
       input -= 9;
     } else if (input >= 5) {
       buf[charIndex] = 'V';
       input -= 5;
     } else if (input >= 4) {
-        deductLowerNumeralChars(buf, 'I', 'V');
-        input -= 4;
+      lowerNumeralChars(buf, 'I', 'V');
+      input -= 4;
     } else if (input <= 3) {
       buf[charIndex] = 'I';
       input -= 1;
@@ -54,7 +54,7 @@ const int convertToNumeral(char* buf, int input) {
   return 0;
 }
 
-void deductLowerNumeralChars(char* buf, char numeral1, char numeral2) {
+void lowerNumeralChars(char* buf, char numeral1, char numeral2) {
   buf[charIndex] = numeral1;
   charIndex++;
   buf[charIndex] = numeral2;

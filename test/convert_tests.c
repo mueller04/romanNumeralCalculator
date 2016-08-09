@@ -283,8 +283,6 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convert, convert_CM_to_900);
   tcase_add_test(convert, convert_XIV_to_14);
   tcase_add_test(convert, convert_LXXIV_to_74);
-  tcase_add_test(convert, convert_99_to_XCIX);
-  tcase_add_test(convert, convert_3999_to_MMMCMXCIX);
   TCase *convertToNumeral = tcase_create("convert to numeral");
   tcase_add_test(convertToNumeral, convert_1_to_I);
   tcase_add_test(convertToNumeral, convert_3_to_III);
@@ -299,6 +297,8 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convertToNumeral, convert_900_to_CM);
   tcase_add_test(convertToNumeral, convert_1000_to_M);
   tcase_add_test(convertToNumeral, convert_540_to_DXL);
+  tcase_add_test(convertToNumeral, convert_99_to_XCIX);
+  tcase_add_test(convertToNumeral, convert_3999_to_MMMCMXCIX);
   TCase *add = tcase_create("addition");
   tcase_add_test(add, add_I_to_I_results_II);
   tcase_add_test(add, add_XIV_to_LX_results_LXXIV);

@@ -1,5 +1,6 @@
 
 #include<stdio.h>
+#include<string.h>
 #include "convert.h"
 
 int convertToInt(char *romanNumeral)

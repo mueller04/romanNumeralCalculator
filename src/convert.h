@@ -1,7 +1,7 @@
 #ifndef CONVERT_H
 #define CONVERT_H
 
-int convert(char *romanNumeral);
-int getNumeralValue(char numeral);
+int convertToInt(char *romanNumeral);
+int getNumeralValue(const char numeral);
 
 #endif /* CONVERT_H */

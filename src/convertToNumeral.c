@@ -54,7 +54,7 @@ const int convertToNumeral(char* buf, int input) {
   return 0;
 }
 
-void lowerNumeralChars(char* buf, char numeral1, char numeral2) {
+void lowerNumeralChars(char* buf, const char numeral1, const char numeral2) {
   buf[charIndex] = numeral1;
   charIndex++;
   buf[charIndex] = numeral2;

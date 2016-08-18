@@ -24,7 +24,7 @@ int convertToInt(char *romanNumeral)
   return value;
 }
 
-int getNumeralValue(char numeral)
+int getNumeralValue(const char numeral)
 {
   if (numeral == 'I'){
     return 1;

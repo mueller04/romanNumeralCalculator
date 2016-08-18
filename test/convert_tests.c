@@ -267,7 +267,7 @@ END_TEST
 START_TEST(add_I_to_I_results_II)
 {
   char buf[MAXIMUM_ROMAN_SIZE];
-  int result = add(buf, "I", "I");
+  int result = add("I", "I", buf);
   ck_assert_str_eq(buf, "II");
 }
 END_TEST
@@ -275,7 +275,7 @@ END_TEST
 START_TEST(add_XIV_to_LX_results_LXXIV)
 {
   char buf[MAXIMUM_ROMAN_SIZE];
-  int result = add(buf, "XIV", "LX");
+  int result = add("XIV", "LX", buf);
   ck_assert_str_eq(buf, "LXXIV");
 }
 END_TEST
@@ -283,7 +283,7 @@ END_TEST
 START_TEST(add_MMMCMXCIX_to_MMMCMXCIX_results_error)
 {
   char buf[MAXIMUM_ROMAN_SIZE];
-  int result = add(buf, "MMMCMXCIX", "MMMCMXCIX");
+  int result = add("MMMCMXCIX", "MMMCMXCIX", buf);
   ck_assert_int_eq(result, 1);
 }
 END_TEST
@@ -291,7 +291,7 @@ END_TEST
 START_TEST(subtract_XIV_from_LXXIV_results_LX)
 {
   char buf[MAXIMUM_ROMAN_SIZE];
-  int result = subtract(buf, "LXXIV", "XIV");
+  int result = subtract("LXXIV", "XIV", buf);
   ck_assert_str_eq(buf, "LX");
 }
 END_TEST
@@ -299,7 +299,7 @@ END_TEST
 START_TEST(subtract_II_from_I_results_error)
 {
   char buf[MAXIMUM_ROMAN_SIZE];
-  int result = subtract(buf, "I", "II");
+  int result = subtract("I", "II", buf);
   ck_assert_int_eq(result, 1);
 }
 END_TEST

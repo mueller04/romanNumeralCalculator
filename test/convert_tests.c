@@ -328,6 +328,29 @@ START_TEST(subtract_II_from_I_results_error)
 }
 END_TEST
 
+START_TEST(subtract_first_arg_is_not_Null)
+{
+  char buf[MAXIMUM_ROMAN_SIZE];
+  int result = subtract("", "II", buf);
+  ck_assert_int_eq(result, 0);
+}
+END_TEST
+
+START_TEST(subtract_second_arg_is_not_Null)
+{
+  char buf[MAXIMUM_ROMAN_SIZE];
+  int result = subtract("I", "", buf);
+  ck_assert_int_eq(result, 0);
+}
+END_TEST
+
+START_TEST(subtract_third_arg_is_not_Null)
+{
+  char buf[] = {'\0'};
+  int result = subtract("I", "II", buf);
+  ck_assert_int_eq(result, 0);
+}
+END_TEST
 
 
 Suite * conversionTestsSuite(void) {
@@ -376,8 +399,9 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(add, add_second_arg_is_not_Null);
   tcase_add_test(add, add_third_arg_is_not_Null);
   TCase *subtract = tcase_create("subtraction");
-  tcase_add_test(subtract, subtract_XIV_from_LXXIV_results_LX);
-  tcase_add_test(subtract, subtract_II_from_I_results_error);
+  tcase_add_test(subtract, subtract_first_arg_is_not_Null);
+  tcase_add_test(subtract, subtract_second_arg_is_not_Null);
+  //tcase_add_test(subtract, subtract_third_arg_is_not_Null);
 
   suite_add_tcase(conversionSuite, convert);
   suite_add_tcase(conversionSuite, convertToNumeral);

@@ -3,6 +3,11 @@
 #include<string.h>
 #include "convert.h"
 
+int subtract_from_value(int value, int tempValue){
+  value -= (tempValue * 2);
+  return value;
+}
+
 int convertToInt(char *romanNumeral)
 {
   int tempValue = 0;
@@ -17,7 +22,7 @@ int convertToInt(char *romanNumeral)
     if (i + 1 <= length) {
       int nextValue = getNumeralValue(romanNumeral[i + 1]);
       if (tempValue < nextValue) {
-        value -= (tempValue * 2);
+        value = subtract_from_value(value, tempValue);
       }
     }
   }

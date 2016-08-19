@@ -288,6 +288,30 @@ START_TEST(add_MMMCMXCIX_to_MMMCMXCIX_results_error)
 }
 END_TEST
 
+START_TEST(add_first_arg_is_not_Null)
+{
+  char buf[MAXIMUM_ROMAN_SIZE];
+  int result = add("", "MMMCMXCIX", buf);
+  ck_assert_int_eq(result, 0);
+}
+END_TEST
+
+START_TEST(add_second_arg_is_not_Null)
+{
+  char buf[MAXIMUM_ROMAN_SIZE];
+  int result = add("MMMCMXCIX", "", buf);
+  ck_assert_int_eq(result, 0);
+}
+END_TEST
+
+START_TEST(add_third_arg_is_not_Null)
+{
+  char buf[] = {""};
+  int result = add("MMMCMXCIX", "MMMCMXCIX", buf);
+  ck_assert_int_eq(result, 0);
+}
+END_TEST
+
 START_TEST(subtract_XIV_from_LXXIV_results_LX)
 {
   char buf[MAXIMUM_ROMAN_SIZE];
@@ -348,6 +372,9 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(add, add_I_to_I_results_II);
   tcase_add_test(add, add_XIV_to_LX_results_LXXIV);
   tcase_add_test(add, add_MMMCMXCIX_to_MMMCMXCIX_results_error);
+  tcase_add_test(add, add_first_arg_is_not_Null);
+  tcase_add_test(add, add_second_arg_is_not_Null);
+  tcase_add_test(add, add_third_arg_is_not_Null);
   TCase *subtract = tcase_create("subtraction");
   tcase_add_test(subtract, subtract_XIV_from_LXXIV_results_LX);
   tcase_add_test(subtract, subtract_II_from_I_results_error);

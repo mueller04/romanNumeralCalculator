@@ -401,7 +401,7 @@ Suite * conversionTestsSuite(void) {
   TCase *subtract = tcase_create("subtraction");
   tcase_add_test(subtract, subtract_first_arg_is_not_Null);
   tcase_add_test(subtract, subtract_second_arg_is_not_Null);
-  //tcase_add_test(subtract, subtract_third_arg_is_not_Null);
+  tcase_add_test(subtract, subtract_third_arg_is_not_Null);
 
   suite_add_tcase(conversionSuite, convert);
   suite_add_tcase(conversionSuite, convertToNumeral);

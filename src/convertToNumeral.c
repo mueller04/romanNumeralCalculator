@@ -1,8 +1,7 @@
 
 #include<stdio.h>
 #include "convertToNumeral.h"
-
-int charIndex = 0;
+#include <string.h>
 
 const int convertToNumeral(char* buf, int input) {
 
@@ -13,54 +12,52 @@ const int convertToNumeral(char* buf, int input) {
   while (input > 0) {
       input = addCharsToBuffer(buf, input);
   }
-  buf[charIndex] = '\0';
+  strcat(buf, "\0");
   return 0;
 }
 
-void lowerNumeralChars(char* buf, const char numeral1, const char numeral2) {
-  buf[charIndex] = numeral1;
-  charIndex++;
-  buf[charIndex] = numeral2;
+void lowerNumeralChars(char* buf, const char* numeral1, const char* numeral2) {
+  strcat(buf, numeral1);
+  strcat(buf, numeral2);
 }
 
 int addCharsToBuffer(char* buf, int input_remaining){
   if (input_remaining >= 1000) {
-    buf[charIndex] = 'M';
+    strcat(buf, "M");
     input_remaining -= 1000;
   } else if(input_remaining >= 900) {
-    lowerNumeralChars(buf, 'C', 'M');
+    lowerNumeralChars(buf, "C", "M");
     input_remaining -= 900;
   } else if (input_remaining >= 500) {
-    buf[charIndex] = 'D';
+    strcat(buf, "D");
     input_remaining -= 500;
   } else if (input_remaining >= 100) {
-    buf[charIndex] = 'C';
+    strcat(buf, "C");
     input_remaining -= 100;
   } else if (input_remaining >= 90) {
-    lowerNumeralChars(buf, 'X', 'C');
+    lowerNumeralChars(buf, "X", "C");
     input_remaining -= 90;
   } else if (input_remaining >= 50) {
-    buf[charIndex] = 'L';
+    strcat(buf, "L");
     input_remaining -= 50;
   } else if (input_remaining >= 40) {
-    lowerNumeralChars(buf, 'X', 'L');
+    lowerNumeralChars(buf, "X", "L");
     input_remaining -= 40;
   } else if (input_remaining >= 10) {
-    buf[charIndex] = 'X';
+    strcat(buf, "X");
     input_remaining -= 10;
   } else if (input_remaining >= 9) {
-    lowerNumeralChars(buf, 'I', 'X');
+    lowerNumeralChars(buf, "I", "X");
     input_remaining -= 9;
   } else if (input_remaining >= 5) {
-    buf[charIndex] = 'V';
+    strcat(buf, "V");
     input_remaining -= 5;
   } else if (input_remaining >= 4) {
-    lowerNumeralChars(buf, 'I', 'V');
+    lowerNumeralChars(buf, "I", "V");
     input_remaining -= 4;
   } else if (input_remaining <= 3) {
-    buf[charIndex] = 'I';
+    strcat(buf, "I");
     input_remaining -= 1;
   }
-  charIndex++;
   return input_remaining;
 }

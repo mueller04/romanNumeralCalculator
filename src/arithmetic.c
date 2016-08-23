@@ -4,7 +4,7 @@
 #include "convertToNumeral.h"
 
 const int add(char* num1, char* num2, char* buf){
-  int is_null = check_for_null(num1, num2, buf);
+  int is_null = check_for_null(num1, num2);
   if (is_null){
       return 0;
   }
@@ -23,8 +23,8 @@ const int subtract(char* num1, char* num2, char* buf){
   return result;
 }
 
-int check_for_null(char* num1, char* num2, char* buf){
-  if (buf[0] == '\0' || num1[0] == '\0' || num2[0] == '\0'){
+int check_for_null(char* num1, char* num2){
+  if (num1[0] == '\0' || num2[0] == '\0'){
     return 1;
   } else {
     return 0;

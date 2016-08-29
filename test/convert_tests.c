@@ -319,6 +319,14 @@ START_TEST(add_second_arg_is_not_Null)
 }
 END_TEST
 
+START_TEST(add_second_arg_is_not_Null_Pointer)
+{
+  char buf[16] = {0};
+  int result = add("MMMCMXCIX", NULL, buf);
+  ck_assert_int_eq(result, -1);
+}
+END_TEST
+
 START_TEST(subtract_XIV_from_LXXIV_results_LX)
 {
   char buf[16] = {0};
@@ -343,10 +351,26 @@ START_TEST(subtract_first_arg_is_not_Null)
 }
 END_TEST
 
+START_TEST(subtract_first_arg_is_not_Null_Pointer)
+{
+  char buf[16] = {0};
+  int result = subtract(NULL, "II", buf);
+  ck_assert_int_eq(result, -1);
+}
+END_TEST
+
 START_TEST(subtract_second_arg_is_not_Null)
 {
   char buf[16] = {0};
   int result = subtract("I", "", buf);
+  ck_assert_int_eq(result, -1);
+}
+END_TEST
+
+START_TEST(subtract_second_arg_is_not_Null_Pointer)
+{
+  char buf[16] = {0};
+  int result = subtract("I", NULL, buf);
   ck_assert_int_eq(result, -1);
 }
 END_TEST
@@ -398,9 +422,12 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(add, add_first_arg_is_not_Null);
   tcase_add_test(add, add_first_arg_is_not_Null_Pointer);
   tcase_add_test(add, add_second_arg_is_not_Null);
+  tcase_add_test(add, add_second_arg_is_not_Null_Pointer);
   TCase *subtract = tcase_create("subtraction");
   tcase_add_test(subtract, subtract_first_arg_is_not_Null);
+  tcase_add_test(subtract, subtract_first_arg_is_not_Null_Pointer);
   tcase_add_test(subtract, subtract_second_arg_is_not_Null);
+  tcase_add_test(subtract, subtract_second_arg_is_not_Null_Pointer);
 
   suite_add_tcase(conversionSuite, convert);
   suite_add_tcase(conversionSuite, convertToNumeral);

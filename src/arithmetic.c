@@ -24,7 +24,7 @@ const int subtract(char* num1, char* num2, char* buf){
 }
 
 int check_for_null(char* num1, char* num2){
-  if (num1[0] == '\0' || num2[0] == '\0' || num1 == NULL || num2 == NULL){
+  if (num1 == NULL || num2 == NULL || num1[0] == '\0' || num2[0] == '\0'){
     return -1;
   } else {
     return 0;

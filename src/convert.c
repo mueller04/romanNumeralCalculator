@@ -10,6 +10,10 @@ int subtract_from_value(int value, int tempValue){
 
 int convertToInt(char *romanNumeral)
 {
+  if (romanNumeral == NULL){
+      return -1;
+  }
+
   int tempValue = 0;
   int value = 0;
   int length = (int)strlen(romanNumeral);
@@ -21,6 +25,7 @@ int convertToInt(char *romanNumeral)
 
     if (i + 1 <= length) {
       int nextValue = getNumeralValue(romanNumeral[i + 1]);
+
       if (tempValue < nextValue) {
         value = subtract_from_value(value, tempValue);
       }
@@ -46,6 +51,6 @@ int getNumeralValue(const char numeral)
   } else if (numeral == 'M'){
     return 1000;
   } else {
-    return 0;
+    return -1;
   }
 }

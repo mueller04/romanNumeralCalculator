@@ -6,7 +6,7 @@
 const int convertToNumeral(char* buf, int input) {
 
   if (input >= 4000 || input <= 0) {
-    return 1;
+    return -1;
   }
 
   while (input > 0) {

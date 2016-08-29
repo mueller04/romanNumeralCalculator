@@ -57,10 +57,10 @@ START_TEST(convert_M_to_1000)
 }
 END_TEST
 
-START_TEST(convert_T_to_0)
+START_TEST(convert_T_to_false)
 {
   int result = convertToInt("T");
-  ck_assert_int_eq(result, 0);
+  ck_assert_int_eq(result, -1);
 }
 END_TEST
 
@@ -117,6 +117,13 @@ START_TEST(convert_LXXIV_to_74)
 {
   int result = convertToInt("XIV");
   ck_assert_int_eq(result, 14);
+}
+END_TEST
+
+START_TEST(return_false_if_no_pointer)
+{
+  int result = convertToInt(NULL);
+  ck_assert_int_eq(result, -1);
 }
 END_TEST
 
@@ -244,7 +251,7 @@ START_TEST(convert_4000_to_error)
 {
   char buf[16] = {0};
   int result = convertToNumeral(buf, 4000);
-  ck_assert_int_eq(result, 1);
+  ck_assert_int_eq(result, -1);
 }
 END_TEST
 
@@ -252,7 +259,7 @@ START_TEST(convert_4001_to_error)
 {
   char buf[16] = {0};
   int result = convertToNumeral(buf, 4001);
-  ck_assert_int_eq(result, 1);
+  ck_assert_int_eq(result, -1);
 }
 END_TEST
 
@@ -260,7 +267,7 @@ START_TEST(convert_0_to_error)
 {
   char buf[16] = {0};
   int result = convertToNumeral(buf, 0);
-  ck_assert_int_eq(result, 1);
+  ck_assert_int_eq(result, -1);
 }
 END_TEST
 
@@ -284,7 +291,7 @@ START_TEST(add_MMMCMXCIX_to_MMMCMXCIX_results_error)
 {
   char buf[16] = {0};
   int result = add("MMMCMXCIX", "MMMCMXCIX", buf);
-  ck_assert_int_eq(result, 1);
+  ck_assert_int_eq(result, -1);
 }
 END_TEST
 
@@ -292,7 +299,15 @@ START_TEST(add_first_arg_is_not_Null)
 {
   char buf[16] = {0};
   int result = add("", "MMMCMXCIX", buf);
-  ck_assert_int_eq(result, 0);
+  ck_assert_int_eq(result, -1);
+}
+END_TEST
+
+START_TEST(add_first_arg_is_not_Null_Pointer)
+{
+  char buf[16] = {0};
+  int result = add(NULL, "MMMCMXCIX", buf);
+  ck_assert_int_eq(result, -1);
 }
 END_TEST
 
@@ -300,7 +315,7 @@ START_TEST(add_second_arg_is_not_Null)
 {
   char buf[16] = {0};
   int result = add("MMMCMXCIX", "", buf);
-  ck_assert_int_eq(result, 0);
+  ck_assert_int_eq(result, -1);
 }
 END_TEST
 
@@ -324,7 +339,7 @@ START_TEST(subtract_first_arg_is_not_Null)
 {
   char buf[16] = {0};
   int result = subtract("", "II", buf);
-  ck_assert_int_eq(result, 0);
+  ck_assert_int_eq(result, -1);
 }
 END_TEST
 
@@ -332,7 +347,7 @@ START_TEST(subtract_second_arg_is_not_Null)
 {
   char buf[16] = {0};
   int result = subtract("I", "", buf);
-  ck_assert_int_eq(result, 0);
+  ck_assert_int_eq(result, -1);
 }
 END_TEST
 
@@ -347,7 +362,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convert, convert_C_to_100);
   tcase_add_test(convert, convert_D_to_500);
   tcase_add_test(convert, convert_M_to_1000);
-  tcase_add_test(convert, convert_T_to_0);
+  tcase_add_test(convert, convert_T_to_false);
   tcase_add_test(convert, convert_VI_to_6);
   tcase_add_test(convert, convert_III_to_3);
   tcase_add_test(convert, convert_VIII_to_8);
@@ -356,6 +371,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convert, convert_CM_to_900);
   tcase_add_test(convert, convert_XIV_to_14);
   tcase_add_test(convert, convert_LXXIV_to_74);
+  tcase_add_test(convert, return_false_if_no_pointer);
   TCase *convertToNumeral = tcase_create("convert to numeral");
   tcase_add_test(convertToNumeral, convert_1_to_I);
   tcase_add_test(convertToNumeral, convert_3_to_III);
@@ -380,6 +396,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(add, add_XIV_to_LX_results_LXXIV);
   tcase_add_test(add, add_MMMCMXCIX_to_MMMCMXCIX_results_error);
   tcase_add_test(add, add_first_arg_is_not_Null);
+  tcase_add_test(add, add_first_arg_is_not_Null_Pointer);
   tcase_add_test(add, add_second_arg_is_not_Null);
   TCase *subtract = tcase_create("subtraction");
   tcase_add_test(subtract, subtract_first_arg_is_not_Null);

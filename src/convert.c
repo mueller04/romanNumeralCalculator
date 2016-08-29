@@ -31,6 +31,13 @@ int convertToInt(char *romanNumeral)
       }
     }
   }
+
+  for (i = 0; i < length; i++) {
+    tempValue = getNumeralValue(romanNumeral[i]);
+    if (tempValue == -1){
+      value = -1;
+    }
+  }
   return value;
 }
 

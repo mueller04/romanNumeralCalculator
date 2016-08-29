@@ -64,6 +64,13 @@ START_TEST(convert_T_to_false)
 }
 END_TEST
 
+START_TEST(convert_VIZ_to_false)
+{
+  int result = convertToInt("VIZ");
+  ck_assert_int_eq(result, -1);
+}
+END_TEST
+
 START_TEST(convert_VI_to_6)
 {
   int result = convertToInt("VI");
@@ -387,6 +394,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convert, convert_D_to_500);
   tcase_add_test(convert, convert_M_to_1000);
   tcase_add_test(convert, convert_T_to_false);
+  tcase_add_test(convert, convert_VIZ_to_false);
   tcase_add_test(convert, convert_VI_to_6);
   tcase_add_test(convert, convert_III_to_3);
   tcase_add_test(convert, convert_VIII_to_8);

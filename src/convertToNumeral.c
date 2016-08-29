@@ -12,7 +12,6 @@ const int convertToNumeral(char* buf, int input) {
   while (input > 0) {
       input = addCharsToBuffer(buf, input);
   }
-  strcat(buf, "\0");
   return 0;
 }
 

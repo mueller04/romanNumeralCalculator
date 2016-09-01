@@ -18,7 +18,7 @@ const int add(const char* num1, const char* num2, char* buf){
       return -1;
   }
 
-  int result = convertToNumeral(buf, convertToInt(num1) + convertToInt(num2));
+  int result = convertToNumeral(16, buf, convertToInt(num1) + convertToInt(num2));
   return result;
 }
 
@@ -29,6 +29,6 @@ const int subtract(const char* num1, const char* num2, char* buf){
       return -1;
   }
 
-  int result = convertToNumeral(buf, convertToInt(num1) - convertToInt(num2));
+  int result = convertToNumeral(16, buf, convertToInt(num1) - convertToInt(num2));
   return result;
 }

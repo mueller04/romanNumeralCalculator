@@ -137,7 +137,7 @@ END_TEST
 START_TEST(convert_1_to_I)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 1);
+  int result = convertToNumeral(16, buf, 1);
   ck_assert_str_eq(buf, "I");
 }
 END_TEST
@@ -145,7 +145,7 @@ END_TEST
 START_TEST(convert_3_to_III)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 3);
+  int result = convertToNumeral(16, buf, 3);
   ck_assert_str_eq(buf, "III");
 }
 END_TEST
@@ -153,7 +153,7 @@ END_TEST
 START_TEST(convert_5_to_V)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 5);
+  int result = convertToNumeral(16, buf, 5);
   ck_assert_str_eq(buf, "V");
 }
 END_TEST
@@ -161,7 +161,7 @@ END_TEST
 START_TEST(convert_4_to_IV)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 4);
+  int result = convertToNumeral(16, buf, 4);
   ck_assert_str_eq(buf, "IV");
 }
 END_TEST
@@ -169,7 +169,7 @@ END_TEST
 START_TEST(convert_10_to_X)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 10);
+  int result = convertToNumeral(16, buf, 10);
   ck_assert_str_eq(buf, "X");
 }
 END_TEST
@@ -177,7 +177,7 @@ END_TEST
 START_TEST(convert_9_to_IX)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 9);
+  int result = convertToNumeral(16, buf, 9);
   ck_assert_str_eq(buf, "IX");
 }
 END_TEST
@@ -185,7 +185,7 @@ END_TEST
 START_TEST(convert_50_to_L)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 50);
+  int result = convertToNumeral(16, buf, 50);
   ck_assert_str_eq(buf, "L");
 }
 END_TEST
@@ -193,7 +193,7 @@ END_TEST
 START_TEST(convert_40_to_XL)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 40);
+  int result = convertToNumeral(16, buf, 40);
   ck_assert_str_eq(buf, "XL");
 }
 END_TEST
@@ -201,7 +201,7 @@ END_TEST
 START_TEST(convert_100_to_C)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 100);
+  int result = convertToNumeral(16, buf, 100);
   ck_assert_str_eq(buf, "C");
 }
 END_TEST
@@ -209,7 +209,7 @@ END_TEST
 START_TEST(convert_500_to_D)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 500);
+  int result = convertToNumeral(16, buf, 500);
   ck_assert_str_eq(buf, "D");
 }
 END_TEST
@@ -217,7 +217,7 @@ END_TEST
 START_TEST(convert_900_to_CM)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 900);
+  int result = convertToNumeral(16, buf, 900);
   ck_assert_str_eq(buf, "CM");
 }
 END_TEST
@@ -225,7 +225,7 @@ END_TEST
 START_TEST(convert_1000_to_M)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 1000);
+  int result = convertToNumeral(16, buf, 1000);
   ck_assert_str_eq(buf, "M");
 }
 END_TEST
@@ -233,7 +233,7 @@ END_TEST
 START_TEST(convert_540_to_DXL)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 540);
+  int result = convertToNumeral(16, buf, 540);
   ck_assert_str_eq(buf, "DXL");
 }
 END_TEST
@@ -241,7 +241,7 @@ END_TEST
 START_TEST(convert_99_to_XCIX)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 99);
+  int result = convertToNumeral(16, buf, 99);
   ck_assert_str_eq(buf, "XCIX");
 }
 END_TEST
@@ -249,7 +249,7 @@ END_TEST
 START_TEST(convert_3999_to_MMMCMXCIX)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 3999);
+  int result = convertToNumeral(16, buf, 3999);
   ck_assert_str_eq(buf, "MMMCMXCIX");
 }
 END_TEST
@@ -257,7 +257,7 @@ END_TEST
 START_TEST(convert_4000_to_error)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 4000);
+  int result = convertToNumeral(16, buf, 4000);
   ck_assert_int_eq(result, -1);
 }
 END_TEST
@@ -265,7 +265,7 @@ END_TEST
 START_TEST(convert_4001_to_error)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 4001);
+  int result = convertToNumeral(16, buf, 4001);
   ck_assert_int_eq(result, -1);
 }
 END_TEST
@@ -273,7 +273,16 @@ END_TEST
 START_TEST(convert_0_to_error)
 {
   char buf[16] = {0};
-  int result = convertToNumeral(buf, 0);
+  int result = convertToNumeral(16, buf, 0);
+  ck_assert_int_eq(result, -1);
+}
+END_TEST
+
+START_TEST(convert_ISUFFICIENT_BUF_SIZE_to_error)
+{
+  char buf[3] = {0};
+  int result = convertToNumeral(16, buf, 3);
+  ck_assert_str_eq(buf, "");
   ck_assert_int_eq(result, -1);
 }
 END_TEST
@@ -281,7 +290,7 @@ END_TEST
 START_TEST(convert_NULL_to_error)
 {
   char *buf = NULL;
-  int result = convertToNumeral(buf, 25);
+  int result = convertToNumeral(16, buf, 25);
   ck_assert_int_eq(result, -1);
 }
 END_TEST
@@ -412,6 +421,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convert, convert_XIV_to_14);
   tcase_add_test(convert, convert_LXXIV_to_74);
   tcase_add_test(convert, return_false_if_no_pointer);
+  tcase_add_test(convert, convert_ISUFFICIENT_BUF_SIZE_to_error);
   TCase *convertToNumeral = tcase_create("convert to numeral");
   tcase_add_test(convertToNumeral, convert_1_to_I);
   tcase_add_test(convertToNumeral, convert_3_to_III);

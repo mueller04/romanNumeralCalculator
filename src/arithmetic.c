@@ -3,7 +3,7 @@
 #include "convert.h"
 #include "convertToNumeral.h"
 
-const int add(char* num1, char* num2, char* buf){
+const int add(const char* num1, const char* num2, char* buf){
   int is_null = check_for_null(num1, num2);
   if (is_null){
       return -1;
@@ -13,7 +13,7 @@ const int add(char* num1, char* num2, char* buf){
   return result;
 }
 
-const int subtract(char* num1, char* num2, char* buf){
+const int subtract(const char* num1, const char* num2, char* buf){
     int is_null = check_for_null(num1, num2, buf);
     if (is_null){
         return -1;

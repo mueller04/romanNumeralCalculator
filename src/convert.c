@@ -8,7 +8,7 @@ int subtract_from_value(int value, int tempValue){
   return value;
 }
 
-int convertToInt(char *romanNumeral)
+int convertToInt(const char *romanNumeral)
 {
   if (romanNumeral == NULL){
       return -1;

@@ -278,6 +278,14 @@ START_TEST(convert_0_to_error)
 }
 END_TEST
 
+START_TEST(convert_NULL_to_error)
+{
+  char *buf = NULL;
+  int result = convertToNumeral(buf, 25);
+  ck_assert_int_eq(result, -1);
+}
+END_TEST
+
 START_TEST(add_I_to_I_results_II)
 {
   char buf[16] = {0};
@@ -423,6 +431,7 @@ Suite * conversionTestsSuite(void) {
   tcase_add_test(convertToNumeral, convert_4000_to_error);
   tcase_add_test(convertToNumeral, convert_4001_to_error);
   tcase_add_test(convertToNumeral, convert_0_to_error);
+  tcase_add_test(convertToNumeral, convert_NULL_to_error);
   TCase *add = tcase_create("addition");
   tcase_add_test(add, add_I_to_I_results_II);
   tcase_add_test(add, add_XIV_to_LX_results_LXXIV);

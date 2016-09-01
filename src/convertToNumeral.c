@@ -40,7 +40,7 @@ int buildString(char* buf, int input_remaining) {
 
 const int convertToNumeral(char* buf, int input) {
 
-  if (input >= 4000 || input <= 0) {
+  if (input >= 4000 || input <= 0 || buf == NULL) {
     return -1;
   }
 

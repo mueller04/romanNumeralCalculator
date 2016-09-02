@@ -11,7 +11,7 @@ int check_for_null(const char* num){
   }
 }
 
-const int add(const char* num1, const char* num2, char* buf){
+int add(const char* num1, const char* num2, char* buf){
   int num1_is_null = check_for_null(num1);
   int num2_is_null = check_for_null(num2);
   if (num1_is_null || num2_is_null){
@@ -25,7 +25,7 @@ const int add(const char* num1, const char* num2, char* buf){
   return result;
 }
 
-const int subtract(const char* num1, const char* num2, char* buf){
+int subtract(const char* num1, const char* num2, char* buf){
   int num1_is_null = check_for_null(num1);
   int num2_is_null = check_for_null(num2);
   if (num1_is_null || num2_is_null){

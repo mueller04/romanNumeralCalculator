@@ -13,18 +13,6 @@ int addCharToBuffer(const int bufferSize, char* buf, int input_remaining, const 
   } else {
     return -1;
   }
-
-  //int numeralSize = sizeof(romanNumeral) / sizeof(int);
-  //printf("%d\n", numeralSize);
-
-  //int i = 0;
-  // while (buf[i] =! '\0'){
-  //   printf("%d\n", i);
-  //   i++;
-  // }
-
-  //printf("%c\n", buf[0]);
-
 }
 
 int buildString(const int bufferSize, char* buf, int input_remaining) {
@@ -56,7 +44,7 @@ int buildString(const int bufferSize, char* buf, int input_remaining) {
   return input_remaining;
 }
 
-const int convertToNumeral(const int bufferSize, char* buf, int input) {
+int convertToNumeral(const int bufferSize, char* buf, int input) {
 
   if (input >= 4000 || input <= 0 || buf == NULL) {
     return -1;

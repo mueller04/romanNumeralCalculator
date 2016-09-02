@@ -10,126 +10,159 @@ const int MAXIMUM_ROMAN_SIZE = (int)sizeof("MMMDCCCLXXXVIII");
 START_TEST(convert_I_to_1)
 {
   char *input = "I";
-  int result = convertToInt(input);
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, 1);
 }
 END_TEST
 
 START_TEST(convert_V_to_5)
 {
-  int result = convertToInt("V");
+  char *input = "V";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, 5);
 }
 END_TEST
 
 START_TEST(convert_X_to_10)
 {
-  int result = convertToInt("X");
+  char *input = "X";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, 10);
 }
 END_TEST
 
 START_TEST(convert_L_to_50)
 {
-  int result = convertToInt("L");
+  char *input = "L";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, 50);
 }
 END_TEST
 
 START_TEST(convert_C_to_100)
 {
-  int result = convertToInt("C");
+  char *input = "C";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, 100);
 }
 END_TEST
 
 START_TEST(convert_D_to_500)
 {
-  int result = convertToInt("D");
+  char *input = "D";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, 500);
 }
 END_TEST
 
 START_TEST(convert_M_to_1000)
 {
-  int result = convertToInt("M");
+  char *input = "M";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, 1000);
 }
 END_TEST
 
 START_TEST(convert_T_to_false)
 {
-  int result = convertToInt("T");
+  char *input = "T";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, -1);
 }
 END_TEST
 
 START_TEST(convert_VIZ_to_false)
 {
-  int result = convertToInt("VIZ");
+  char *input = "VIZ";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, -1);
 }
 END_TEST
 
 START_TEST(convert_VI_to_6)
 {
-  int result = convertToInt("VI");
+  char *input = "VI";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, 6);
 }
 END_TEST
 
 START_TEST(convert_III_to_3)
 {
-  int result = convertToInt("III");
+  char *input = "III";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, 3);
 }
 END_TEST
 
 START_TEST(convert_VIII_to_8)
 {
-  int result = convertToInt("VIII");
+  char *input = "VIII";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, 8);
 }
 END_TEST
 
 START_TEST(convert_IV_to_4)
 {
-  int result = convertToInt("IV");
+  char *input = "IV";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, 4);
 }
 END_TEST
 
 START_TEST(convert_IX_to_9)
 {
-  int result = convertToInt("IX");
+  char *input = "IX";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, 9);
 }
 END_TEST
 
 START_TEST(convert_CM_to_900)
 {
-  int result = convertToInt("CM");
+  char *input = "CM";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, 900);
 }
 END_TEST
 
 START_TEST(convert_XIV_to_14)
 {
-  int result = convertToInt("XIV");
+  char *input = "XIV";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
   ck_assert_int_eq(result, 14);
 }
 END_TEST
 
 START_TEST(convert_LXXIV_to_74)
 {
-  int result = convertToInt("XIV");
-  ck_assert_int_eq(result, 14);
+  char *input = "LXXIV";
+  int length = (int)strlen(input);
+  int result = convertToInt(length, input);
+  ck_assert_int_eq(result, 74);
 }
 END_TEST
 
 START_TEST(return_false_if_no_pointer)
 {
-  int result = convertToInt(NULL);
+  int result = convertToInt(0, NULL);
   ck_assert_int_eq(result, -1);
 }
 END_TEST

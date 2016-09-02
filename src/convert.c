@@ -8,11 +8,10 @@ int subtract_from_value(int value, int tempValue){
   return value;
 }
 
-int charactersAreInvalid(const char *romanNumeral){
+int charactersAreInvalid(const int length, const char *romanNumeral){
   if (romanNumeral == NULL) {
     return -1;
   }
-  int length = (int)strlen(romanNumeral);
 
   int charsValid = 0;
   int i;
@@ -26,13 +25,12 @@ int charactersAreInvalid(const char *romanNumeral){
   return charsValid;
 }
 
-int convertToInt(const char *romanNumeral)
+int convertToInt(const int length, const char *romanNumeral)
 {
 
-  if (charactersAreInvalid(romanNumeral)){
+  if (charactersAreInvalid(length, romanNumeral)){
       return -1;
   }
-  int length = (int)strlen(romanNumeral);
 
   int tempValue = 0;
   int value = 0;
